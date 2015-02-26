@@ -1,5 +1,5 @@
 /* variables */
-def cfg = new Properties(); props.load(streamFileFromWorkspace('.jenkins/build.properties'))
+def cfg = new Properties(); cfg.load(streamFileFromWorkspace('.jenkins/build.properties'))
 
 def git_branches  = [ 'master' ]
 
