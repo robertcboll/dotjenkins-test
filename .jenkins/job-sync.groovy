@@ -2,7 +2,7 @@
 def common = new Properties()
 common.load(streamFileFromWorkspace('.jenkins/build.properties'))
 
-def cfg = new ConfigSlurper().parse(streamFileFromWorkspace('.jenkins/build.properties').getText())
+def cfg = new ConfigSlurper().parse("github_owner=some-owner")
 
 def git_branches  = [ 'master' ]
 
