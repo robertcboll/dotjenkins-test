@@ -1,7 +1,8 @@
 /* variables */
-String str = readFileFromWorkspace('.jenkins/build.conf')
-println(str)
-def cfg           = new ConfigSlurper().parse(str)
+def common = new Properties()
+common.load(streamFileFromWorkspace('.jenkins/build.conf'))
+
+def cfg = new ConfigSlurper().parse(common)
 
 def git_branches  = [ 'master' ]
 
