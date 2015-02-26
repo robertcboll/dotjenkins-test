@@ -1,8 +1,7 @@
 /* variables */
-def common = new Properties()
-//common.load(streamFileFromWorkspace('dotjenkins/job-sync', '.jenkins/build.properties'))
-
-def cfg = new ConfigSlurper().parse(readFileFromWorkspace('dotjenkins/job-sync', '.jenkins/build.properties').toString())
+def props = new Properties()
+props.load(streamFileFromWorkspace('.jenkins/build.properties'))
+def cfg = new ConfigSlurper().parse(props)
 
 def git_branches  = [ 'master' ]
 
