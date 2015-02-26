@@ -1,10 +1,5 @@
 /* variables */
-def props = new Properties(); props.load(streamFileFromWorkspace('.jenkins/build.properties'))
-def cfg = new ConfigSlurper().parse(props)
-
-println(props.jenkins_folder)
-println(props['jenkins_folder'])
-println(cfg.jenkins_folder)
+def cfg = new Properties(); props.load(streamFileFromWorkspace('.jenkins/build.properties'))
 
 def git_branches  = [ 'master' ]
 
