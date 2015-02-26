@@ -5,14 +5,14 @@ def git_branches  = [ 'master' ]
 
 
 /* jobs */
-def job_sync = "${cfg.jenkins_folder}/job-sync"
+def job_sync_trigger = "${cfg.jenkins_folder}/job-sync-trigger"
 
 folder {
   name cfg.jenkins_folder
 }
 
 job {
-  name job_sync
+  name job_sync_trigger
   description '.jenkins job sync'
 
   scm {
@@ -33,7 +33,11 @@ job {
     scm '' // required for triggering
   }
 
-  steps {
+  conditionalSteps {
+    condition {
+      shell 'git show --pretty="format:" --name-only | grep ".jenkins"'
+    }
+
     dsl {
       removeAction 'DELETE'
       external '.jenkins/*.groovy'
