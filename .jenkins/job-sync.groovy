@@ -1,5 +1,6 @@
 /* variables */
 String str = readFileFromWorkspace('.jenkins/build.conf')
+println(str)
 def cfg           = new ConfigSlurper().parse(str)
 
 def git_branches  = [ 'master' ]
