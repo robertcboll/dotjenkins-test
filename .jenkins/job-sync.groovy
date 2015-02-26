@@ -2,7 +2,7 @@
 def common = new Properties()
 //common.load(streamFileFromWorkspace('dotjenkins/job-sync', '.jenkins/build.properties'))
 
-def cfg = new ConfigSlurper().parse(readFileFromWorkspace('dotjenkins/job-sync', '.jenkins/build.properties'))
+def cfg = new ConfigSlurper().parse(readFileFromWorkspace('dotjenkins/job-sync', '.jenkins/build.properties').toString())
 
 def git_branches  = [ 'master' ]
 
