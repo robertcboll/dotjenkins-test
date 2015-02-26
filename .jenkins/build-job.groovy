@@ -2,15 +2,15 @@ def cfg = new Properties(); cfg.load(streamFileFromWorkspace('.jenkins/build.pro
 def git_branches  = [ 'master' ]
 
 /* jobs */
-def job_sync_trigger = "${cfg.jenkins_folder}/job-sync-trigger"
+def build = "${cfg.jenkins_folder}/build"
 
 folder {
   name cfg.jenkins_folder
 }
 
 job {
-  name job_sync_trigger
-  description '.jenkins job sync'
+  name build
+  description 'a simple build'
 
   scm {
     git {
@@ -26,20 +26,7 @@ job {
     }
   }
 
-  triggers {
-    scm '' // required for triggering
-  }
-
   steps {
-    conditionalSteps {
-      condition {
-        shell 'git show --pretty="format:" --name-only | grep ".jenkins"'
-      }
-
-      dsl {
-        removeAction 'DELETE'
-        external '.jenkins/*.groovy'
-      }
-    }
+    shell 'echo "hello worldddd"'
   }
 }
