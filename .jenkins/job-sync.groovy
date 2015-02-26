@@ -1,5 +1,5 @@
 /* variables */
-def cfg           = ConfigSlurper.parse(readFileFromWorkspace('.jenkins/build.conf'))
+def cfg           = ConfigSlurper.parse(readFileFromWorkspace('.jenkins/build.groovy'))
 
 def git_branches  = [ 'master' ]
 
