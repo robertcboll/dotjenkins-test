@@ -33,14 +33,16 @@ job {
     scm '' // required for triggering
   }
 
-  conditionalSteps {
-    condition {
-      shell 'git show --pretty="format:" --name-only | grep ".jenkins"'
-    }
+  steps {
+    conditionalSteps {
+      condition {
+        shell 'git show --pretty="format:" --name-only | grep ".jenkins"'
+      }
 
-    dsl {
-      removeAction 'DELETE'
-      external '.jenkins/*.groovy'
+      dsl {
+        removeAction 'DELETE'
+        external '.jenkins/*.groovy'
+      }
     }
   }
 }
