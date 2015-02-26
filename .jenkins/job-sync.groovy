@@ -1,6 +1,6 @@
 /* variables */
 def common = new Properties()
-common.load(streamFileFromWorkspace('.jenkins/build.conf'))
+common.load(streamFileFromWorkspace('.jenkins/build.properties'))
 
 def cfg = new ConfigSlurper().parse(common)
 
