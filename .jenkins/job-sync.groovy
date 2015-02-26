@@ -21,7 +21,7 @@ job {
   scm {
     git {
       remote {
-        github "${cfg.github_owner}/${cfg.github_project}"
+        github "${cfg.github_owner}/${cfg.github_repo}"
         
         credentials "${cfg.github_creds}"
       }
