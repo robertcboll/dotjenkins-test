@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def job_name      = "_base"
+def job_name      = "${json.jenkins.folder}/_base"
 def job_desc      = "template for jobs"
 def job_branches  = ['${GIT_COMMIT}']
 
