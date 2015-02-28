@@ -1,0 +1,27 @@
+{
+  "git": {
+    "url": "robertcboll/dotjenkins-test",
+    "creds": "jenkins",
+    "branches": ["master", "develop", "feature/*", "release/*"]
+  },
+
+  "jenkins": {
+    "folder": "dotjenkins-test",
+    "labels": "jdk8"
+  },
+
+  "jobs": {
+    "sync": {
+      "downstream": ["one"]
+    },
+    "one": {
+      "downstream": ["two", "three"]
+    },
+    "two": {
+      "downstream": []
+    },
+    "three": {
+      "downstream": []
+    }
+  }
+}

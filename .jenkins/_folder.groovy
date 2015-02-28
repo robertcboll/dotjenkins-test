@@ -1,7 +1,6 @@
-import config
-
-def str = config.cfg.jenkins.folder
+import groovy.json.JsonSlurper
+def json = new JsonSlurper.parseText(readFileFromWorkspace('.jenkins/config.json'))
 
 folder {
-  name str
+  name json.jenkins.folder
 }
