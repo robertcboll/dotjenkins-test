@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 class config {
-  def cfg = {
+  static def cfg = {
 
     github = {
         repo = "robertcboll/dotjenkins-test"
