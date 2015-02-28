@@ -12,9 +12,9 @@
   },
 
   "downstream": {
-    "sync": ["one"],
-    "_job": ["two", "three"],
-    "another": [],
-    "three": []
+    "_sync": ["job"],
+    
+    "job": ["another"],
+    "another": []
   }
 }

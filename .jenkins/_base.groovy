@@ -32,4 +32,6 @@ job {
   }
 
   steps {}
+
+  publishers {}
 }
