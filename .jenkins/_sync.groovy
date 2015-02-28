@@ -20,7 +20,7 @@ job {
         credentials json.git.creds
       }
 
-      me.branches.each { git_branch ->
+      job_branches.each { git_branch ->
         branch git_branch
       }
     }
