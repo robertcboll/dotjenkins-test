@@ -7,13 +7,14 @@
 
   "jenkins": {
     "folder": "dotjenkins-test",
+    "tmpl": "dotjenkins-test/_base",
     "labels": "jdk8"
   },
 
   "downstream": {
     "sync": ["one"],
-    "one": ["two", "three"],
-    "two": [],
+    "_job": ["two", "three"],
+    "another": [],
     "three": []
   }
 }

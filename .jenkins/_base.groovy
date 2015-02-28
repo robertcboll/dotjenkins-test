@@ -31,11 +31,5 @@ job {
     buildName '#${BUILD_NUMBER} ${GIT_BRANCH} ${GIT_REVISION,length=10}'
   }
 
-  steps {
-    json.downstream."${job_name}".each { downstream_project -> 
-      downstreamParameterized {
-        trigger(downstream_project, condition = 'SUCCESS')
-      }
-    }
-  }
+  steps {}
 }
