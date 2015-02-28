@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 class config {
-  static def cfgstr = '''
+  static String cfgstr = '''
 
     github {
       repo = ""
@@ -14,5 +14,5 @@ class config {
 
 '''
 
-  static def cfg = new ConfigSlurper().parse(cfgstr)
+  static def cfg = new ConfigSlurper().parse("jenkins {  folder = 'foldername' }")
 }
