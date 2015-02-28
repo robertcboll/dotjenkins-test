@@ -1,14 +1,14 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def me = json.jenkins.jobs.base
+def me = json.jobs.one
 
 job {
-  name me.name
-  description me.description
+  name 'one'
+  description 'a sample job'
 
-  if (me.labels != null) {
-    me.labels
+  if (json.jenkins.labels != null) {
+    label json.jenkins.labels
   }
 
   scm {
@@ -30,16 +30,12 @@ job {
   }
 
   steps {
-    //todo
+    //TODO fill in steps
 
     me.downstream.each { downstream_project -> 
       downstreamParameterized {
         trigger(downstream_project, condition = 'SUCCESS')
       }
     }
-  }
-
-  publishers {
-    
   }
 }

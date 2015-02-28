@@ -7,8 +7,8 @@ job {
   name 'sync'
   description '.jenkins sync'
 
-  if (me.labels != null) {
-    me.labels
+  if (json.jenkins..labels != null) {
+    label json.jenkins.labels
   }
 
   scm {
