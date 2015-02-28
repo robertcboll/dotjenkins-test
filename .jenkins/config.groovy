@@ -1,11 +1,21 @@
 import groovy.json.JsonSlurper
 
 class config {
-  def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/jenkins.json'))
-  def cfg = 
-    {
-      sample {
-        foo = "bar"
+  def cfg = {
+
+    github = {
+        repo = "robertcboll/dotjenkins-test"
+        creds = "jenkins"
+    }
+
+    jenkins = {
+      folder = "dotjenkins-test"
+
+      views = {
+      }
+
+      jobs = {
       }
     }
+  }
 }

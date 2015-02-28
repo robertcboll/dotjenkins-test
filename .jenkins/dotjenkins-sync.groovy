@@ -7,12 +7,12 @@ job {
   scm {
     git {
       remote {
-        github json.github.url
+        github cfg.github.url
 
-        credentials json.github.creds
+        credentials cfg.github.creds
       }
 
-      json.jenkins.jobs.sync_trigger.branches.each { git_branch ->
+      cfg.jenkins.jobs.sync_trigger.branches.each { git_branch ->
         branch(git_branch)
       }
     }
@@ -39,7 +39,7 @@ job {
   publishers {
     publishCloneWorkspace("*")
 
-    json.jenkins.jobs.sync_trigger.downstream.each { job_name -> 
+    cfg.jenkins.jobs.sync_trigger.downstream.each { job_name -> 
       downstream(job_name)
     }
   }
