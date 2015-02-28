@@ -1,5 +1,5 @@
 import config.*
 
 folder {
-  name cfg.jenkins.folder
+  name config.cfg.jenkins.folder
 }
