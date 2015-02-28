@@ -9,7 +9,7 @@ job {
   name job_name
   description job_desc
 
-  if (json.jenkins..labels != null) {
+  if (json.jenkins.labels != null) {
     label json.jenkins.labels
   }
 
