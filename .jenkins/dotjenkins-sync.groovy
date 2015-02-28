@@ -1,6 +1,4 @@
-import config
-
-def json = config.json
+import config.*
 
 job {
   name 'dotjenkins-sync'
