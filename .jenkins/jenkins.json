@@ -1,0 +1,16 @@
+{
+  "github" : {
+   "repo": "robertcboll/dotjenkins-test",
+   "creds": "jenkins"
+  },
+
+  "jenkins": {
+    "folder": "dotjenkins-test",
+
+    "views": {
+    },
+
+    "jobs": {
+    }
+  }
+}
