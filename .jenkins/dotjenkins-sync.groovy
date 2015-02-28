@@ -1,6 +1,7 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/jenkins.json'))
 
+import groovy.util.ConfigSlurper
 def cfg = new ConfigSlurper.parse(readFileFromWorkspace('.jenkins/config.conf'))
 
 job {
