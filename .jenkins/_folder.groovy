@@ -1,6 +1,6 @@
-import config
+import config.*
 
-def str = config.cfg.jenkins.folder
+def str = cfg.jenkins.folder
 
 folder {
   name str
