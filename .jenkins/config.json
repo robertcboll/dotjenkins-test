@@ -10,18 +10,10 @@
     "labels": "jdk8"
   },
 
-  "jobs": {
-    "sync": {
-      "downstream": ["one"]
-    },
-    "one": {
-      "downstream": ["two", "three"]
-    },
-    "two": {
-      "downstream": []
-    },
-    "three": {
-      "downstream": []
-    }
+  "downstream": {
+    "sync": ["one"],
+    "one": ["two", "three"],
+    "two": [],
+    "three": []
   }
 }

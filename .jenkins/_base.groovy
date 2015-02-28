@@ -1,11 +1,13 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def me = json.jobs.two
+def job_name      = "_base"
+def job_desc      = "template for jobs"
+def job_branches  = ['${GIT_COMMIT}']
 
 job {
-  name 'two'
-  description 'a sample job'
+  name job_name
+  description job_desc
 
   if (json.jenkins.labels != null) {
     label json.jenkins.labels
@@ -18,7 +20,7 @@ job {
         credentials json.git.creds
       }
 
-      me.branches.each { git_branch ->
+      job_branches.each { git_branch ->
         branch git_branch
       }
     }
@@ -30,9 +32,7 @@ job {
   }
 
   steps {
-    //TODO fill in steps
-
-    me.downstream.each { downstream_project -> 
+    json.downstream."${job_name}".each { downstream_project -> 
       downstreamParameterized {
         trigger(downstream_project, condition = 'SUCCESS')
       }

@@ -3,9 +3,12 @@ def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.js
 
 def me = json.jobs.one
 
+def job_name = "one"
+def job_desc = "a sample job"
+
 job {
-  name 'one'
-  description 'a sample job'
+  name job_name
+  description job_desc
 
   if (json.jenkins.labels != null) {
     label json.jenkins.labels
