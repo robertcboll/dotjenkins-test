@@ -1,5 +1,7 @@
 import config.*
 
+def str = config.cfg.jenkins.folder
+
 folder {
-  name config.cfg.jenkins.folder
+  name str
 }
