@@ -1,11 +1,13 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def me = json.jobs.sync
+def job_name      = "${json.jenkins.folder}/_sync"
+def job_desc      = ".jenkins sync"
+def job_branches  = ["master", "develop"]
 
 job {
-  name 'sync'
-  description '.jenkins sync'
+  name job_name
+  description job_desc
 
   if (json.jenkins..labels != null) {
     label json.jenkins.labels
@@ -44,12 +46,14 @@ job {
         removeAction 'DELETE'
         external '.jenkins/*.groovy'
       }
-
-      downstreamParameterized {
-        me.downstream.each { downstream_project ->  
-          trigger("${jenkins.folder}/${downstream_project}", condition = 'SUCCESS')
-        }
-      }
     }
+  }
+
+  publishers {
+    downstreamParameterized {
+      json.downstream."${job_name}".each { downstream_project ->  
+        trigger("${json.jenkins.folder}/${downstream_project}", condition = 'SUCCESS')
+      }
+    } 
   }
 }
