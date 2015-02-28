@@ -1,5 +1,7 @@
 import config
 
+def json = config.json
+
 job {
   name 'dotjenkins-sync'
   description '.jenkins job sync'
