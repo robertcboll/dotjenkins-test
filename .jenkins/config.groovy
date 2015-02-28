@@ -1,4 +1,4 @@
-sample {
+def json = sample {
   foo = ""
   bar = ""
 }

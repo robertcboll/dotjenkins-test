@@ -1,9 +1,7 @@
-import groovy.json.JsonSlurper
-def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/jenkins.json'))
+//import groovy.json.JsonSlurper
+//def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/jenkins.json'))
 
-import groovy.util.ConfigSlurper
-String str = "sample { foo = \"bar\" }"
-def cfg = new ConfigSlurper().parse(str)
+import config
 
 job {
   name 'dotjenkins-sync'
