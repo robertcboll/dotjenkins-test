@@ -15,11 +15,11 @@ job {
   }
 
   environmentVariables {
-    //env('key', 'value')
+    env('message', 'hello world')
   }
 
   steps {
-    shell 'echo "hello world"'
+    shell 'echo ${MESSAGE}'
   }
 
   publishers {
