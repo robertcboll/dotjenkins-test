@@ -52,7 +52,9 @@ job {
   publishers {
     downstreamParameterized {
       json.downstream."${job_name}".each { downstream_project ->  
-        trigger("${json.jenkins.folder}/${downstream_project}", condition = 'SUCCESS')
+        trigger("${json.jenkins.folder}/${downstream_project}", condition = 'SUCCESS') {
+          gitRevision(false)
+        }
       }
     } 
   }
