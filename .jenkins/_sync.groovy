@@ -32,7 +32,7 @@ job {
   }
 
   triggers {
-    scm ''
+    githubPush()
   }
 
   steps {
