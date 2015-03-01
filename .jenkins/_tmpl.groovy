@@ -1,12 +1,12 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def job_name      = "${json.jenkins.folder}/_tmpl"
-def job_desc      = "template for jobs"
+def job_name      = '_tmpl'
+def job_desc      = 'template for jobs'
 def job_branches  = ['${GIT_COMMIT}']
 
 job {
-  name job_name
+  name "${json.jenkins.folder}/${job_name}"
   description job_desc
 
   if (json.jenkins.labels != null) {

@@ -1,11 +1,11 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def job_name      = "${json.jenkins.folder}/another"
+def job_name      = 'another'
 def job_desc      = 'another sample job'
 
-job {
-  name job_name
+job { 
+  name "${json.jenkins.folder}/${job_name}"
   description job_desc
 
   using json.jenkins.tmpl

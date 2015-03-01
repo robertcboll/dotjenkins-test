@@ -8,13 +8,13 @@
   "jenkins": {
     "folder": "dotjenkins-test",
     "tmpl": "dotjenkins-test/_tmpl",
-    "labels": "jdk8"
+    "labels": ""
   },
 
   "downstream": {
-    "_sync": ["job"],
+    "_sync":    ["job"],
     
-    "job": ["another"],
-    "another": []
+    "job":      ["another"],
+    "another":  []
   }
 }
