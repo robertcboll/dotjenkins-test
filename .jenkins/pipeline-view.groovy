@@ -10,5 +10,5 @@ view(type: BuildPipelineView) {
 
   displayedBuilds 10
 
-  selectedJob "${json.jenkins.folder}/one"
+  selectedJob "${json.jenkins.folder}/sample"
 }
