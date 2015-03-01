@@ -1,8 +1,7 @@
 {
   "git": {
     "url": "robertcboll/dotjenkins-test",
-    "creds": "jenkins",
-    "branches": ["master", "develop", "feature/*", "release/*"]
+    "creds": "jenkins"
   },
 
   "jenkins": {
