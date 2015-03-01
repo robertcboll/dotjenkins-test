@@ -19,7 +19,7 @@ job {
   }
 
   steps {
-    shell 'echo ${MESSAGE}'
+    shell 'echo ${message}'
   }
 
   publishers {
