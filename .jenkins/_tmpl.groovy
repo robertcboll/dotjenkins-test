@@ -3,7 +3,7 @@ def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.js
 
 def job_name      = '_tmpl'
 def job_desc      = 'template for jobs'
-def job_branches  = ['${GIT_COMMIT}']
+def job_branches  = ['master', 'develop']
 
 job {
   name "${json.jenkins.folder}/${job_name}"
