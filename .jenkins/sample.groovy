@@ -1,10 +1,10 @@
 import groovy.json.JsonSlurper
 def json = new JsonSlurper().parseText(readFileFromWorkspace('.jenkins/config.json'))
 
-def job_name      = 'another'
-def job_desc      = 'another sample job'
+def job_name      = 'job'
+def job_desc      = 'a sample job'
 
-job { 
+job {
   name "${json.jenkins.folder}/${job_name}"
   description job_desc
 
@@ -15,11 +15,11 @@ job {
   }
 
   environmentVariables {
-    //env('key', 'value')
+    env('message', 'hello world')
   }
 
   steps {
-    shell 'echo "hello world"'
+    shell 'echo ${MESSAGE}'
   }
 
   publishers {
